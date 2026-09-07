@@ -1,0 +1,254 @@
+.section {
+  --clients-accent: #ffc400;
+  --clients-surface: #030303;
+  --clients-panel: #111214;
+  --clients-border: #2d2f32;
+  --clients-text: #e9eaec;
+  position: relative;
+  overflow: hidden;
+  padding: clamp(1.25rem, 2.7vw, 2.7rem) 0;
+  background: var(--clients-surface);
+  color: var(--clients-text);
+}
+
+.section::before {
+  position: absolute;
+  top: -4rem;
+  left: 44%;
+  width: 20rem;
+  height: 10rem;
+  content: "";
+  opacity: 0.18;
+  background-image:
+    linear-gradient(30deg, transparent 46%, #806000 47%, #806000 48%, transparent 49%),
+    linear-gradient(150deg, transparent 46%, #806000 47%, #806000 48%, transparent 49%);
+  background-size: 5rem 2.9rem;
+  mask-image: linear-gradient(to bottom, black, transparent 85%);
+}
+
+.panel {
+  position: relative;
+  display: grid;
+  grid-template-columns: clamp(17rem, 24vw, 23rem) minmax(0, 1fr);
+  align-items: center;
+  width: calc(100% - 3rem);
+  max-width: 110rem;
+  min-height: clamp(6.5rem, 8.2vw, 8.4rem);
+  margin-inline: auto;
+  overflow: hidden;
+  border: 1px solid var(--clients-border);
+  border-radius: 0.55rem;
+  background: linear-gradient(105deg, #131416, #0d0e10);
+  box-shadow: 0 1rem 3rem rgb(0 0 0 / 24%);
+}
+
+.intro {
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 3.15rem minmax(0, 1fr);
+  align-items: center;
+  gap: 1rem;
+  height: 100%;
+  padding: 1.1rem clamp(1.2rem, 2vw, 2rem);
+  border-right: 1px solid #303237;
+  background: linear-gradient(90deg, #131416 80%, rgb(19 20 22 / 92%));
+}
+
+.intro h2 {
+  max-width: 13.5rem;
+  margin: 0;
+  color: #d9dadd;
+  font-size: clamp(0.82rem, 0.9vw, 1rem);
+  font-weight: 450;
+  line-height: 1.45;
+}
+
+.icon {
+  display: grid;
+  width: 3.15rem;
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid #8a6b00;
+  border-radius: 50%;
+  color: var(--clients-accent);
+  background: rgb(255 196 0 / 4%);
+}
+
+.icon svg {
+  fill: var(--clients-accent);
+}
+
+.icon path + path {
+  fill: none;
+  stroke: #111214;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.marquee {
+  min-width: 0;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: clients-scroll 38s linear infinite;
+}
+
+.marquee:hover .track,
+.marquee:focus-within .track {
+  animation-play-state: paused;
+}
+
+.logoGroup {
+  display: flex;
+  flex: none;
+  align-items: center;
+  margin: 0;
+  padding: 0 0.4rem 0 0;
+  list-style: none;
+}
+
+.logoItem {
+  --slot-width: 10.75rem;
+  position: relative;
+  display: grid;
+  flex: 0 0 var(--slot-width);
+  width: var(--slot-width);
+  height: 4.4rem;
+  padding: 0.75rem 1.35rem;
+  place-items: center;
+}
+
+.logoItem::after {
+  position: absolute;
+  top: 24%;
+  right: 0;
+  bottom: 24%;
+  width: 1px;
+  content: "";
+  background: #34363a;
+}
+
+.logo {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 2.5rem;
+  object-fit: contain;
+  filter: grayscale(1) brightness(0) invert(1);
+  opacity: 0.84;
+}
+
+.logoItem[data-scale="wide"] .logo {
+  max-height: 2rem;
+}
+
+.logoItem[data-scale="compact"] .logo {
+  max-height: 2.9rem;
+}
+
+@keyframes clients-scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 1280px) {
+  .panel {
+    grid-template-columns: 18rem minmax(0, 1fr);
+  }
+
+  .logoItem {
+    --slot-width: 9.75rem;
+  }
+}
+
+@media (max-width: 880px) {
+  .panel {
+    grid-template-columns: 15.5rem minmax(0, 1fr);
+    width: calc(100% - 2rem);
+    max-width: 52rem;
+  }
+
+  .intro {
+    grid-template-columns: 2.8rem minmax(0, 1fr);
+    padding-inline: 1rem;
+  }
+
+  .icon {
+    width: 2.8rem;
+  }
+
+  .logoItem {
+    --slot-width: 9rem;
+  }
+}
+
+@media (max-width: 680px) {
+  .panel {
+    display: block;
+  }
+
+  .intro {
+    height: auto;
+    min-height: 5.4rem;
+    border-right: 0;
+    border-bottom: 1px solid #303237;
+  }
+
+  .intro h2 {
+    max-width: none;
+  }
+
+  .marquee {
+    min-height: 5.75rem;
+  }
+
+  .logoGroup {
+    min-height: 5.75rem;
+  }
+
+  .logoItem {
+    --slot-width: 8.5rem;
+    height: 4.8rem;
+    padding-inline: 1rem;
+  }
+}
+
+@media (max-width: 430px) {
+  .section {
+    padding-block: 1rem;
+  }
+
+  .panel {
+    width: calc(100% - 1.5rem);
+    max-width: 27rem;
+  }
+
+  .logoItem {
+    --slot-width: 7.75rem;
+    padding-inline: 0.85rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    overflow-x: auto;
+    mask-image: none;
+    scrollbar-width: thin;
+  }
+
+  .track {
+    animation: none;
+  }
+
+  .duplicate {
+    display: none;
+  }
+}
