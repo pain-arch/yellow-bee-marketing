@@ -1,0 +1,8 @@
+interface:
+  display_name: "Professional Frontend Design System"
+  short_description: "Build Yellow Bee's responsive frontend system"
+  brand_color: "#0477BF"
+  default_prompt: "Use $professional-frontend-design-system to design or implement this Yellow Bee marketing interface as a reusable, accessible Next.js component system."
+
+policy:
+  allow_implicit_invocation: true
