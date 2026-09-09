@@ -1,0 +1,282 @@
+.section {
+  --work-accent: #ffc400;
+  --work-surface: #080a0a;
+  --work-card: #0b0d0d;
+  --work-text: #f8f8f6;
+  --work-muted: #b7b9b9;
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(3.5rem, 5.6vw, 6.5rem);
+  border-bottom: 1px solid #242626;
+  background:
+    radial-gradient(circle at 47% 22%, rgb(255 196 0 / 3%), transparent 27rem),
+    linear-gradient(112deg, #0a0c0c 0%, #080a0a 55%, #0c0e0e 100%);
+  color: var(--work-text);
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: minmax(14rem, 20rem) minmax(0, 1fr);
+  align-items: stretch;
+  width: min(calc(100% - 4rem), 110rem);
+  margin-inline: auto;
+  gap: clamp(2.5rem, 4.4vw, 5.5rem);
+}
+
+.intro {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-block: 0.15rem 0.35rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.9rem;
+  color: var(--work-accent);
+  font-size: 0.8rem;
+  font-weight: 750;
+  letter-spacing: 0.075em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.intro h2 {
+  max-width: 18rem;
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.25rem, 3.2vw, 3.7rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1.02;
+  text-wrap: balance;
+}
+
+.description {
+  max-width: 18.75rem;
+  margin: 1.25rem 0 0;
+  color: var(--work-muted);
+  font-size: clamp(0.93rem, 1vw, 1.05rem);
+  line-height: 1.65;
+}
+
+.allProjects {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 1.75rem;
+  margin-top: auto;
+  padding-top: 2rem;
+  color: var(--work-accent);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 160ms ease, gap 160ms ease;
+}
+
+.allProjects:hover {
+  gap: 2rem;
+  color: #ffe06e;
+}
+
+.allProjects svg,
+.nextButton svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.9;
+}
+
+.gallery {
+  position: relative;
+  min-width: 0;
+}
+
+.track {
+  display: grid;
+  grid-auto-columns: calc((100% - 2rem) / 3);
+  grid-auto-flow: column;
+  column-gap: 1rem;
+  width: 100%;
+  margin: 0;
+  padding: 0 0.2rem 0.25rem;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scroll-behavior: smooth;
+  scroll-snap-type: inline mandatory;
+  scrollbar-width: none;
+  list-style: none;
+}
+
+.track::-webkit-scrollbar {
+  display: none;
+}
+
+.track:focus-visible {
+  outline: 2px solid var(--work-accent);
+  outline-offset: 6px;
+}
+
+.slide {
+  min-width: 0;
+  scroll-snap-align: start;
+}
+
+.card {
+  display: block;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid #393107;
+  border-radius: 0.62rem;
+  background: var(--work-card);
+  color: var(--work-text);
+  text-decoration: none;
+  transition: border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+
+.card:hover {
+  border-color: #8d6b00;
+  box-shadow: 0 1rem 2.5rem rgb(0 0 0 / 28%);
+  transform: translateY(-2px);
+}
+
+.card:focus-visible,
+.allProjects:focus-visible,
+.nextButton:focus-visible {
+  outline: 3px solid var(--work-accent);
+  outline-offset: 4px;
+}
+
+.media {
+  position: relative;
+  aspect-ratio: 1.52 / 1;
+  overflow: hidden;
+  background: #151717;
+}
+
+.media img {
+  object-fit: cover;
+  transition: transform 300ms ease;
+}
+
+.card:hover .media img {
+  transform: scale(1.015);
+}
+
+.cardBody {
+  min-height: 5.9rem;
+  padding: 1rem 1.25rem 1.1rem;
+  border-top: 1px solid #292b2b;
+}
+
+.cardBody h3 {
+  margin: 0;
+  font-size: clamp(1.05rem, 1.25vw, 1.3rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+
+.cardBody p {
+  margin: 0.3rem 0 0;
+  color: #a9abab;
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.nextButton {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  right: 0;
+  display: inline-flex;
+  width: 3.5rem;
+  height: 3.5rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #a67d00;
+  border-radius: 50%;
+  background: #090b0b;
+  color: #fff;
+  cursor: pointer;
+  transform: translate(48%, -50%);
+  transition: border-color 160ms ease, background-color 160ms ease, color 160ms ease;
+}
+
+.nextButton:hover {
+  border-color: var(--work-accent);
+  background: var(--work-accent);
+  color: #090909;
+}
+
+@media (max-width: 1100px) {
+  .inner {
+    grid-template-columns: minmax(13rem, 17rem) minmax(0, 1fr);
+    width: min(calc(100% - 3rem), 68rem);
+    gap: 2.5rem;
+  }
+
+  .track {
+    grid-auto-columns: calc((100% - 1rem) / 2);
+  }
+}
+
+@media (max-width: 760px) {
+  .inner {
+    grid-template-columns: 1fr;
+    width: min(calc(100% - 2rem), 45rem);
+    gap: 2.25rem;
+  }
+
+  .intro h2,
+  .description {
+    max-width: 34rem;
+  }
+
+  .allProjects {
+    margin-top: 1rem;
+    padding-top: 0;
+  }
+
+  .track {
+    grid-auto-columns: min(82%, 22rem);
+  }
+
+  .nextButton {
+    right: 0.25rem;
+    transform: translate(0, -50%);
+  }
+}
+
+@media (max-width: 430px) {
+  .section {
+    padding-block: 3.25rem;
+  }
+
+  .inner {
+    width: calc(100% - 1.5rem);
+  }
+
+  .track {
+    grid-auto-columns: 88%;
+  }
+
+  .cardBody {
+    min-height: 6.5rem;
+    padding-inline: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    scroll-behavior: auto;
+  }
+
+  .allProjects,
+  .card,
+  .media img,
+  .nextButton {
+    transition: none;
+  }
+}
