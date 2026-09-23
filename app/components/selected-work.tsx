@@ -30,12 +30,6 @@ export const yellowBeeSelectedProjects: readonly SelectedProject[] = [
     href: "/work/home-haven-childcare",
   },
   {
-    title: "Smart Reach Solutions",
-    services: "Branding, Website Design & Development",
-    image: "/yellow-bee-selected-work-project-images/02-smart-reach-solutions.png",
-    href: "/work/smart-reach-solutions",
-  },
-  {
     title: "Gulshan Restaurant & Bar",
     services: "Website Design & Development",
     image: "/yellow-bee-selected-work-project-images/03-gulshan-restaurant-and-bar.png",
@@ -58,18 +52,6 @@ export const yellowBeeSelectedProjects: readonly SelectedProject[] = [
     services: "Branding, Website Design & Development",
     image: "/yellow-bee-selected-work-project-images/06-wonder-watchers-ltd.png",
     href: "/work/wonder-watchers-ltd",
-  },
-  {
-    title: "The Growth Group",
-    services: "Website Design & Development",
-    image: "/yellow-bee-selected-work-project-images/07-the-growth-group.png",
-    href: "/work/the-growth-group",
-  },
-  {
-    title: "Dacy Care",
-    services: "Website Design & Development",
-    image: "/yellow-bee-selected-work-project-images/08-dacy-care.png",
-    href: "/work/dacy-care",
   },
 ];
 
